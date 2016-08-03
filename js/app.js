@@ -31,7 +31,7 @@ const App = React.createClass({
                 <button onClick={this.toggle}>{text}</button>
             </div>
             <Editor className={this.state.isPreview ? "hidden" : "row"} onAdd={this.addElement} onRemove={this.removeElement} elements={this.state.elements} />
-            <Preview className={this.state.isPreview ? "row text-center" : "hidden"} elements={this.state.elements} />
+            <Previewer className={this.state.isPreview ? "row text-center" : "hidden"} elements={this.state.elements} />
         </div>;
     }
 });
@@ -67,7 +67,7 @@ const Editor = React.createClass({
     }
 });
 
-const Preview = React.createClass({
+const Previewer = React.createClass({
     render: function () {
         const elements = this.props.elements.map((ele, index) => {
             return <div key={index}>
