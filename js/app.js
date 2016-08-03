@@ -26,10 +26,12 @@ const App = React.createClass({
     },
     render: function () {
         const text = this.state.isPreview ? '编辑' : '预览';
-        return <div>
-            <button onClick={this.toggle}>{text}</button>
-            <Editor className={this.state.isPreview ? "hidden" : ""} onAdd={this.addElement} onRemove={this.removeElement} elements={this.state.elements} />
-            <Preview className={this.state.isPreview ? "" : "hidden"} elements={this.state.elements} />
+        return <div className="container">
+            <div className="row text-center">
+                <button onClick={this.toggle}>{text}</button>
+            </div>
+            <Editor className={this.state.isPreview ? "hidden" : "row"} onAdd={this.addElement} onRemove={this.removeElement} elements={this.state.elements} />
+            <Preview className={this.state.isPreview ? "row text-center" : "hidden"} elements={this.state.elements} />
         </div>;
     }
 });
@@ -49,10 +51,10 @@ const Editor = React.createClass({
             </div>;
         });
         return <div className={this.props.className}>
-            <div>
+            <div className="col-md-6">
                 {previewElements}
             </div>
-            <div>
+            <div className="col-md-6">
                 <div>
                     <input type="radio" name="elementType" value="text" />文本
                     <input type="radio" name="elementType" value="date" />日期
